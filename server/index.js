@@ -66,6 +66,6 @@ app.post("/values", async (req, res) => {
   res.send({ working: true });
 });
 
-app.listen(5000, (err) => {
-  console.log("Listening");
+app.listen(4000, (err) => {
+  console.log("Express server ready to serve on port 4000");
 });
