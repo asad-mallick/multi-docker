@@ -9,8 +9,8 @@ before_install:
 
 script:
   - docker run -e CI=true asad-mallick/client-test npm test
-  - docker run -e CI=true asad-mallick/server-test npm test
-  - docker run -e CI=true asad-mallick/worker-test npm test
+# - docker run -e CI=true asad-mallick/server-test npm test
+# - docker run -e CI=true asad-mallick/worker-test npm test
 
 
 after_success:
