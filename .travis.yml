@@ -4,24 +4,24 @@ services:
 
 before_install:
   - docker build -t asad-mallick/client-test -f ./client/Dockerfile.dev ./client
-  - docker build -t asad-mallick/server-test -f ./server/Dockerfile.dev ./server
-  - docker build -t asad-mallick/worker-test -f ./worker/Dockerfile.dev ./worker
+    #  - docker build -t asad-mallick/server-test -f ./server/Dockerfile.dev ./server
+    #  - docker build -t asad-mallick/worker-test -f ./worker/Dockerfile.dev ./worker
 
 script:
- - docker run -e CI=true asad-mallick/client-test npm test
- - docker run -e CI=true asad-mallick/server-test npm test
- - docker run -e CI=true asad-mallick/worker-test npm test
+  - docker run -e CI=true asad-mallick/client-test npm test
+   # - docker run -e CI=true asad-mallick/server-test npm test
+   # - docker run -e CI=true asad-mallick/worker-test npm test
 
 
 after_success:
-  - docker build -t asadmallick/multi-client ./client
-  - docker build -t asadmallick/multi-nginx ./nginx
-  - docker build -t asadmallick/multi-server ./server
-  - docker build -t asadmallick/multi-worker ./worker
+  - docker build -t asad-mallick/multi-client ./client
+  - docker build -t asad-mallick/multi-nginx ./nginx
+  - docker build -t asad-mallick/multi-server ./server
+  - docker build -t asad-mallick/multi-worker ./worker
   # login to docker CLI
   - echo "$Docker_password" | docker login -u "$Docker_id" --password-stdin
   # Take those images and push them to docker hub
-  - docker push asadmallick/multi-client
-  - docker push asadmallick/multi-nginx
-  - docker push asadmallick/multi-server
-  - docker push asadmallick/multi-worker
+  - docker push asad-mallick/multi-client
+  - docker push asad-mallick/multi-nginx
+  - docker push asad-mallick/multi-server
+  - docker push asad-mallick/multi-worker
