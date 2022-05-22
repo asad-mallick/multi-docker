@@ -23,6 +23,8 @@ after_success:
   - docker push asadmallick/multi-nginx
   - docker push asadmallick/multi-server
   - docker push asadmallick/multi-worker
+  
+  # deploying application on EBS
 
 deploy:
   provider: elasticbeanstalk
