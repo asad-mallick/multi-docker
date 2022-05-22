@@ -23,6 +23,8 @@ after_success:
   - docker push asadmallick/multi-server
   - docker push asadmallick/multi-worker
 
+    # deploying to aws beanstalk
+
 deploy:
   provider: elasticbeanstalk
   region: us-east-1
