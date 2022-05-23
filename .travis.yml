@@ -11,17 +11,17 @@ script:
   - docker run -e CI=true asad-mallick/client-test npm test
 
 after_success:
-  - docker build -t asadmallick/multi-client ./client
-  - docker build -t asadmallick/multi-nginx ./nginx
-  - docker build -t asadmallick/multi-server ./server
-  - docker build -t asadmallick/multi-worker ./worker
+  - docker build -t mallickasad/multi-client ./client
+  - docker build -t mallickasad/multi-nginx ./nginx
+  - docker build -t mallickasad/multi-server ./server
+  - docker build -t mallickasad/multi-worker ./worker
   # login to docker CLI
-  - echo "$Docker_password" | docker login -u "$Docker_id" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push asadmallick/multi-client
-  - docker push asadmallick/multi-nginx
-  - docker push asadmallick/multi-server
-  - docker push asadmallick/multi-worker
+  - docker push mallickasad/multi-client
+  - docker push mallickasad/multi-nginx
+  - docker push mallickasad/multi-server
+  - docker push mallickasad/multi-worker
 
     # deploying to aws beanstalk
 
